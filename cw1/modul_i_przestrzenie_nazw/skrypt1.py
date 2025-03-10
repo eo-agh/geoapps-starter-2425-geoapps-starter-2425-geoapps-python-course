@@ -1,4 +1,4 @@
-import czas
+import cw1.modul_i_przestrzenie_nazw.czas as czas
 print(czas.aktualny_czas)
 
 import time
