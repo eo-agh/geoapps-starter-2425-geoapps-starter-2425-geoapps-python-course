@@ -122,9 +122,9 @@ print("Typ zmiennej krotka1 po nadpisaniu: " + str(type(krotka1)))
 X = set("kalarepa")
 Y = set("lepy")
 
-print("Zmienna X: ", + str(X))
+print("Zmienna X: " + str(X))
 print("Typ zmiennej X: " + str(type(X)))
 print("Zmienna Y: " + str(Y))
 print("Typ zmiennej Y: " + str(type(X)))
 
-print(f"Czesc wspolna zmiennych X i Y: ", X & Y)
+print(f"Czesc wspolna zmiennych X i Y: {X & Y}")
