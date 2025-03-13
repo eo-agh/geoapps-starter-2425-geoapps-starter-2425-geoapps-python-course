@@ -79,6 +79,52 @@ ja = {
     "moje_hobby":[{"nazwa":"origami", "dlaczego:":"lubie skladac papier w rozne ksztalty, bardzo mnie to relaksuje"},
                   {"nazwa":"ukladanie puzzli", "dlaczego:":"dzieki temu nie musze myslec o niczym innym"},
                   {"nazwa":"szydelkowanie","dlaczego:":"odprezajace dla mnie zajecie po stresujacym dniu"},
-                  {"nazwa":"czytanie ksiazek","dlaczego:":"lubie poznawac nowe informacje z ksiazek"}]
+                  {"nazwa":"czytanie ksiazek","dlaczego:":"oderwanie od rzeczywistosci"}]
 }
+print("Typ zmiennej ja: " + str(type(ja)))
 
+print("Wartosc klucza moje_hobby:" + str(ja["moje_hobby"]))
+
+print("Kulucze w slowniku ja:" + str(ja.keys()))
+
+czy = False
+if "adres" in ja.keys():
+    czy = True
+
+print("W zmiennej ja znajduje sie klucz adres: " + str(czy))
+print("Typ zmiennej odpowiedzialnej zasprawdzenie prawdziwosci wczesniejszego zdania: " + str(type(czy)))
+
+krotka1 = (1,2,"3",4,2,5)
+print("Zawartosc zmiennej krotka1: " + str(krotka1))
+print("Typ zmiennej krotka1: " + str(type(krotka1)))
+
+print("Dlugosc zmiennej krotka1: " + str(len(krotka1)) + ". Pierwszy wyraz zmiennej krotka1: " + str(krotka1[0]))
+
+il2 = 0
+for el in krotka1:
+    if el == 2:
+        il2 += 1
+print("Ilosc występowania wartosci 2 w zmiennej krotka1: " + str(il2))
+
+#zmiana elementu zmiennej typu tuple (krotka) na dwa sposoby:
+#krotka1[0] = 2 --> blad, jesli typ zmiennej to tuple
+#by wykonac ta linijke kodu najpierw trzeba zmienic typ zmiennej na liste
+krotka1 = list(krotka1)
+krotka1[0] = 2
+#i wracamy do typu tuple
+krotka1 = tuple(krotka1)
+
+#lub poczaczyc krotki
+# krotka1 = (2,) + krotka1[1:]
+print("Wartości nadpisananej zmiennej krotka1 (zmiana wartosci dla pierwszego elementu): " + str(krotka1))
+print("Typ zmiennej krotka1 po nadpisaniu: " + str(type(krotka1)))
+
+X = set("kalarepa")
+Y = set("lepy")
+
+print("Zmienna X: ", + str(X))
+print("Typ zmiennej X: " + str(type(X)))
+print("Zmienna Y: " + str(Y))
+print("Typ zmiennej Y: " + str(type(X)))
+
+print(f"Czesc wspolna zmiennych X i Y: ", X & Y)
