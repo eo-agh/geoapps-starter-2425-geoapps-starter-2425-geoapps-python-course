@@ -23,5 +23,5 @@ print("\nPierwsze trzy dni tygodnia:")
 for x in range(3):
     print(next(dni_tygodnia2))
 print("\nReszta dni:")  
-for number in dni_tygodnia2:
-    print(number)
+for x in dni_tygodnia2:
+    print(x)
