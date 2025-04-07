@@ -1,13 +1,20 @@
+from math import sqrt
+
+
 class Ambulance:
     # __slots__ = ['id', 'vehicle_type', 'status', 'location', 'medical_equipment']
     __instances_count = 0
+    __max_id = 0
+        
 
-    def __init__(self, id, vehicle_type, status, location, medical_equipment):
-        self.id = id
+    def __init__(self, vehicle_type, status, location, medical_equipment):
+        Ambulance.__max_id += 1
+        self.id = Ambulance.__max_id
         self.vehicle_type = vehicle_type
         self.status = status  # e.g., "available", "on_mission", "servicing"
         self.location = location # as (northing, easting)
         self.medical_equipment = medical_equipment  # List of medical equipment names
+        self.current_incident = None
         Ambulance.__instances_count += 1
 
     def update_location(self, new_location):
@@ -23,6 +30,19 @@ class Ambulance:
                 f"Status: {self.status}, Location: {self.location}, "
                 f"Equipment: {', '.join(self.medical_equipment)}")
     
+    def isavailable(self):
+        return self.status == "available"
+    
+    def assign_to_incident(self, incident):
+        if self.isavailable():
+            self.status = "on_mission"
+            self.current_incident = incident
+            return True
+        return False
+
+    def distance_to(self, incident_location):
+        return sqrt((self.location[0] - incident_location[0]) ** 2 + (self.location[1] - incident_location[1]) ** 2)
+    
     @staticmethod
     def validate_id(ambulance_id):
         return isinstance(ambulance_id, int) and ambulance_id > 0
@@ -34,14 +54,12 @@ class Ambulance:
 # Uruchomienie tej czesci jak zwyklego skryptu
 if __name__ == "__main__":
     ambulance1 = Ambulance(
-        id=0,
         vehicle_type="AZ124",
         status="Available",
         location=(50.095340, 19.920282),
         medical_equipment = ["defibrillator", "stretcher"]
     )
     ambulance2 = Ambulance(
-        id=1,
         vehicle_type="AZ2000",
         status="Available",
         location=(50.095340, 19.920282),

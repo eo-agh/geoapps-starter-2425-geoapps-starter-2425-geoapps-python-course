@@ -1,19 +1,20 @@
-# from geoapps.zajecia03.fleet.ambulance import Ambulance
+# from geoapps.zajecia03.fleet import *
 # from geoapps.zajecia03.operations import *
 # from geoapps.zajecia03.personnel import *
-# import geoapps
+# from geoapps.zajecia03.management import *
 import geoapps.zajecia03 as zaj03
+from time import sleep
 
 def run_application():
     # Zdefiniowanie naszych zasobów
-    ambulance1 = zaj03.fleet.Ambulance(1, "Type A", "available", (50.095340, 18.920282), ["Defibrillator", "Oxygen tank"])
-    ambulance2 = zaj03.fleet.Ambulance(2, "Type B", "on mission", (50.095340, 19.920282), ["Stretcher", "First Aid Kit"])
-    
-    employee1 = zaj03.personnel.Employee("John", "Doe", 123, 12000.0)
-    employee2 = zaj03.personnelEmployee("Jane", "Smith", 124, 8000.0)
+    ambulance1 = zaj03.fleet.Ambulance("Type A", "available", (50.095340, 18.920282), ["Defibrillator", "Oxygen tank"])
+    ambulance2 = zaj03.fleet.Ambulance("Type B", "available", (50.095340, 19.920282), ["Stretcher", "First Aid Kit"])
 
-    driver1 = zaj03.personnel.Driver("Mike", "Johnson", 125, 10000.0, "DL12345", ["BLS"])
-    driver2 = zaj03.personnel.Driver("Anna", "Brown", 126, 11500.0, "DL12346", ["ALS", "PHTLS"])
+    employee1 = zaj03.personnel.Employee("John", "Doe", 12000.0)
+    employee2 = zaj03.personnel.Employee("Jane", "Smith", 8000.0)
+
+    driver1 = zaj03.personnel.Driver("Mike", "Johnson", 10000.0, "DL12345", ["BLS"])
+    driver2 = zaj03.personnel.Driver("Anna", "Brown", 11500.0, "DL12346", ["ALS", "PHTLS"])
 
     # Sprawdzenie czy to czasem nie są te same karetki
     if ambulance1 == ambulance2:
@@ -25,8 +26,9 @@ def run_application():
     queue = zaj03.operations.IncidentQueue()
 
     # Zaraportowanie 2 zgłoszeń
-    incident1 = zaj03.operations.Incident(1, "Power outage in sector 4")
-    incident2 = zaj03.operations.Incident(2, "Fire alarm in building 21")
+    incident1 = zaj03.operations.Incident("Power outage in sector 4", "low", (50.9148, 18.3847), "John Smith")
+    sleep(10)
+    incident2 = zaj03.operations.Incident("Fire alarm in building 21", "high", (50.1478, 19.901487), "Linda Umer")
     queue += incident1
     queue += incident2
 
@@ -36,8 +38,38 @@ def run_application():
 
     # Daj kierowcy podwyżkę za super zasługi
     print(f"Przed podwyżką: {driver1.display_info()}")
-    driver1.update_salary(5000.12)
+    driver1.update_salary(15000.12)
     print(f"Po podwyżce: {driver1.display_info()}")
+
+    station1 = zaj03.fleet.Station(location=(50.095340, 19.920282), ambulance=ambulance1, driver="John Doe", staff_member="Jane Smith")
+    
+    print(station1)
+    print("Czy karetka jest na stacji?", station1.is_ambulance_at_station())
+
+    ambulance1.update_location((50.095340, 19.920282))
+    print("Czy karetka jest na stacji? (Po aktualizacji lokalizacji)", station1.is_ambulance_at_station())
+
+    sleep(20)
+    incident3 = zaj03.operations.Incident("Power outage in sector 4", "low", (50.923145, 18.917486), "Amy King")
+    sleep(15)
+    incident5 = zaj03.operations.Incident("Fire alarm in building 21", "high", (50.923145, 19.017486), "Phill Poe")
+    sleep(20)
+    incident4 = zaj03.operations.Incident("Fire alarm in building 129", "medium", (50.023145, 18.907486), "Mindy Lote")
+    queue += incident3
+    queue += incident5
+    queue = queue + incident4
+
+    print(f"---------- wyświetlanie za pomocą __str__ ----------")
+    print(queue)
+    print()
+    print(f"---------- Sortowanie ----------")
+    print(queue.sort_incidents())
+
+    ambulances = [ambulance1, ambulance2]
+    management = zaj03.Management(queue.sort_incidents(), ambulances)    
+    
+    print()
+    print(management.assign_ambulances())
 
 
 if __name__ == "__main__":

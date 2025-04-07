@@ -2,9 +2,9 @@
 from .employee import Employee
 
 class Driver(Employee):
-    def __init__(self, first_name, last_name, employee_id, salary, license_number, qualifications):
+    def __init__(self, first_name, last_name, salary, license_number, qualifications):
         # alternatywa: super().__init__(self, ...)
-        Employee.__init__(self, first_name, last_name, employee_id, salary)
+        Employee.__init__(self, first_name, last_name, salary)
         self.license_number = license_number
         self.qualifications = qualifications
 
