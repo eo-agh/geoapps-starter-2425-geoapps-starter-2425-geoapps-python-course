@@ -1,0 +1,2 @@
+from geoapps.zajecia01.modul_i_przestrzenie_nazw.skrypt1 import zaj01_skrypt1
+from geoapps.zajecia01.modul_i_przestrzenie_nazw.getcwd import zaj01_getcwd

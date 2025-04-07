@@ -1,0 +1,3 @@
+from geoapps.zajecia02.przypisania.przypisania1 import zaj02_przypisania1
+from geoapps.zajecia02.przypisania.przypisania2 import zaj02_przypisania2
+from geoapps.zajecia02.przypisania.przypisania3 import zaj02_przypisania3
