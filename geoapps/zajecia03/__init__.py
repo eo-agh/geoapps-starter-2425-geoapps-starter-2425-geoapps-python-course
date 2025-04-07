@@ -1,6 +1,7 @@
 from .fleet import *
 from .operations import *
 from .personnel import *
+from .management import *
 
 __all__ = []
 __all__.extend(fleet.__all__)
