@@ -1,0 +1,1 @@
+from geoapps.zajecia05.wyjatki import *
