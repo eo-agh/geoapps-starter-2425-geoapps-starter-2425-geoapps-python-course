@@ -79,3 +79,10 @@ nav:
     - 🧰 Zasięgi: zaj04/zasiegi.md
     - 🧰 Pakiety: zaj04/pakiety.md
     - 🧰 Prowadzenie dokumentacji: zaj04/dokumentacja.md
+  - Pozostałe elemnty języka:
+    - 🤖 Wyjątki: zaj05/wyjatki.md
+    - 🤖 Menadżery kontekstu: zaj05/menadzery_kontekstu.md
+    - 🤖 Dekoratory: zaj05/dekoratory.md
+  - Środowiska wirtualne:
+    - 🧪 Wstęp: zaj06/srodowiska_wirtualne.md
+    - 🧪 Mamba i conda-lock: zaj06/mamba_condalock.md

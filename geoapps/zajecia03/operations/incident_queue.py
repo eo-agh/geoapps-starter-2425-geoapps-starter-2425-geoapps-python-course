@@ -77,7 +77,7 @@ class IncidentQueue:
 
     def __len__(self):
         return len(self.__queue)
-    
+
     def sort_incidents(self):
         time = datetime.now()
         zhigh = IncidentQueue()
@@ -153,6 +153,7 @@ if __name__ == "__main__":
         print(incident)
 
     print(f"---------- dodawanie prawostronne za pomocą __radd__ ----------")
+    
     new_incident = Incident("Test incident", "low", (50.00983746, 19.891731), "Victor Grahm")
     queue = new_incident + queue
 
