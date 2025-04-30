@@ -10,11 +10,11 @@ class Ambulance:
     def __init__(self, vehicle_type, status, location, medical_equipment):
         Ambulance.__max_id += 1
         self.id = Ambulance.__max_id
+
         self.vehicle_type = vehicle_type
         self.status = status  # e.g., "available", "on_mission", "servicing"
         self.location = location # as (northing, easting)
         self.medical_equipment = medical_equipment  # List of medical equipment names
-        self.current_incident = None
         Ambulance.__instances_count += 1
 
     def update_location(self, new_location):
@@ -30,19 +30,7 @@ class Ambulance:
                 f"Status: {self.status}, Location: {self.location}, "
                 f"Equipment: {', '.join(self.medical_equipment)}")
     
-    def isavailable(self):
-        return self.status == "available"
-    
-    def assign_to_incident(self, incident):
-        if self.isavailable():
-            self.status = "on_mission"
-            self.current_incident = incident
-            return True
-        return False
 
-    def distance_to(self, incident_location):
-        return sqrt((self.location[0] - incident_location[0]) ** 2 + (self.location[1] - incident_location[1]) ** 2)
-    
     @staticmethod
     def validate_id(ambulance_id):
         return isinstance(ambulance_id, int) and ambulance_id > 0

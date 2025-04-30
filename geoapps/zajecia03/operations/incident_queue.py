@@ -132,6 +132,7 @@ if __name__ == "__main__":
     incident2 = Incident("Fire alarm in building 21", "high", (50.923145, 19.017486), "Phill Poe")
     incident4 = Incident("Fire alarm in building 129", "medium", (50.023145, 18.907486), "Mindy Lote")
 
+
     print(f"---------- wyświetlanie za pomocą __str__ ----------")
     print(queue)
 
@@ -153,7 +154,7 @@ if __name__ == "__main__":
         print(incident)
 
     print(f"---------- dodawanie prawostronne za pomocą __radd__ ----------")
-    
+  
     new_incident = Incident("Test incident", "low", (50.00983746, 19.891731), "Victor Grahm")
     queue = new_incident + queue
 
