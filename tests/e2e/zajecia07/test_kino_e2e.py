@@ -1,4 +1,7 @@
-from geoapps.zajecia05.wyjatki.wyjatki import *
+# from geoapps.zajecia05.wyjatki.wyjatki import *
+
+from geoapps.zajecia05.wyjatki.wyjatki import SalaKinowa, SalaKinowaException
+
 
 def test_e2e_kino_workflow():
     sala = SalaKinowa(2, 3)
@@ -20,6 +23,6 @@ def test_e2e_kino_workflow():
         sala.anuluj_rezerwacje("A2", "Anna Nowak")
     except SalaKinowaException:
         assert False, "Anulacja nie powinna się nie powieść"
-        
+
     for m in ["A1", "A2"]:
         assert sala.miejsca[m]["status"] == "wolne"

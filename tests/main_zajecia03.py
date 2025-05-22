@@ -2,33 +2,49 @@
 # from geoapps.zajecia03.operations import *
 # from geoapps.zajecia03.personnel import *
 # from geoapps.zajecia03.management import *
-import geoapps.zajecia03 as zaj03
+# import geoapps.zajecia03 as zaj03
 from time import sleep
+
+from geoapps.zajecia03.fleet.ambulance import Ambulance
+from geoapps.zajecia03.fleet.station import Station
+from geoapps.zajecia03.management import Management
+from geoapps.zajecia03.operations.incident import Incident
+from geoapps.zajecia03.operations.incident_queue import IncidentQueue
+from geoapps.zajecia03.personnel.driver import Driver
+
 
 def run_application():
     # Zdefiniowanie naszych zasobów
-    ambulance1 = zaj03.fleet.Ambulance("Type A", "available", (50.095340, 18.920282), ["Defibrillator", "Oxygen tank"])
-    ambulance2 = zaj03.fleet.Ambulance("Type B", "available", (50.095340, 19.920282), ["Stretcher", "First Aid Kit"])
+    ambulance1 = Ambulance(
+        "Type A", "available", (50.095340, 18.920282), ["Defibrillator", "Oxygen tank"]
+    )
+    ambulance2 = Ambulance(
+        "Type B", "available", (50.095340, 19.920282), ["Stretcher", "First Aid Kit"]
+    )
 
-    employee1 = zaj03.personnel.Employee("John", "Doe", 12000.0)
-    employee2 = zaj03.personnel.Employee("Jane", "Smith", 8000.0)
+    # employee1 = Employee("John", "Doe", 12000.0)
+    # employee2 = Employee("Jane", "Smith", 8000.0)
 
-    driver1 = zaj03.personnel.Driver("Mike", "Johnson", 10000.0, "DL12345", ["BLS"])
-    driver2 = zaj03.personnel.Driver("Anna", "Brown", 11500.0, "DL12346", ["ALS", "PHTLS"])
+    driver1 = Driver("Mike", "Johnson", 10000.0, "DL12345", ["BLS"])
+    # driver2 = Driver("Anna", "Brown", 11500.0, "DL12346", ["ALS", "PHTLS"])
 
     # Sprawdzenie czy to czasem nie są te same karetki
     if ambulance1 == ambulance2:
         raise ValueError("To są te same karetki!")
     # Sprawdzenie ile mamy karetek
-    print(zaj03.fleet.Ambulance.get_instances_count())
+    print(Ambulance.get_instances_count())
 
     # Stworzenie kolejki
-    queue = zaj03.operations.IncidentQueue()
+    queue = IncidentQueue()
 
     # Zaraportowanie 2 zgłoszeń
-    incident1 = zaj03.operations.Incident("Power outage in sector 4", "low", (50.9148, 18.3847), "John Smith")
+    incident1 = Incident(
+        "Power outage in sector 4", "low", (50.9148, 18.3847), "John Smith"
+    )
     sleep(10)
-    incident2 = zaj03.operations.Incident("Fire alarm in building 21", "high", (50.1478, 19.901487), "Linda Umer")
+    incident2 = Incident(
+        "Fire alarm in building 21", "high", (50.1478, 19.901487), "Linda Umer"
+    )
     queue += incident1
     queue += incident2
 
@@ -41,33 +57,47 @@ def run_application():
     driver1.update_salary(15000.12)
     print(f"Po podwyżce: {driver1.display_info()}")
 
-    station1 = zaj03.fleet.Station(location=(50.095340, 19.920282), ambulance=ambulance1, driver="John Doe", staff_member="Jane Smith")
-    
+    station1 = Station(
+        location=(50.095340, 19.920282),
+        ambulance=ambulance1,
+        driver="John Doe",
+        staff_member="Jane Smith",
+    )
+
     print(station1)
     print("Czy karetka jest na stacji?", station1.is_ambulance_at_station())
 
     ambulance1.update_location((50.095340, 19.920282))
-    print("Czy karetka jest na stacji? (Po aktualizacji lokalizacji)", station1.is_ambulance_at_station())
+    print(
+        "Czy karetka jest na stacji? (Po aktualizacji lokalizacji)",
+        station1.is_ambulance_at_station(),
+    )
 
     sleep(20)
-    incident3 = zaj03.operations.Incident("Power outage in sector 4", "low", (50.923145, 18.917486), "Amy King")
+    incident3 = Incident(
+        "Power outage in sector 4", "low", (50.923145, 18.917486), "Amy King"
+    )
     sleep(15)
-    incident5 = zaj03.operations.Incident("Fire alarm in building 21", "high", (50.923145, 19.017486), "Phill Poe")
+    incident5 = Incident(
+        "Fire alarm in building 21", "high", (50.923145, 19.017486), "Phill Poe"
+    )
     sleep(20)
-    incident4 = zaj03.operations.Incident("Fire alarm in building 129", "medium", (50.023145, 18.907486), "Mindy Lote")
+    incident4 = Incident(
+        "Fire alarm in building 129", "medium", (50.023145, 18.907486), "Mindy Lote"
+    )
     queue += incident3
     queue += incident5
     queue = queue + incident4
 
-    print(f"---------- wyświetlanie za pomocą __str__ ----------")
+    print("---------- wyświetlanie za pomocą __str__ ----------")
     print(queue)
     print()
-    print(f"---------- Sortowanie ----------")
+    print("---------- Sortowanie ----------")
     print(queue.sort_incidents())
 
     ambulances = [ambulance1, ambulance2]
-    management = zaj03.Management(queue.sort_incidents(), ambulances)    
-    
+    management = Management(queue.sort_incidents(), ambulances)
+
     print()
     print(management.assign_ambulances())
 

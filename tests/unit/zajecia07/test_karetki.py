@@ -1,6 +1,4 @@
-import pytest
-from geoapps.zajecia03.fleet.ambulance import *
-
+from geoapps.zajecia03.fleet.ambulance import Ambulance
 
 
 def test_ambulance_creation():

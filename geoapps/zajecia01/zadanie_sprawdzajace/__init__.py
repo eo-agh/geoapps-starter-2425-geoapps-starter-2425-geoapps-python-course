@@ -1,1 +1,0 @@
-from geoapps.zajecia01.zadanie_sprawdzajace.skrypt4 import zaj01_skrypt4

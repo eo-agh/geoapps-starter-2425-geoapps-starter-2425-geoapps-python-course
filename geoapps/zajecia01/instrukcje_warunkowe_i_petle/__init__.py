@@ -1,1 +1,0 @@
-from geoapps.zajecia01.instrukcje_warunkowe_i_petle.skrypt3 import zaj01_skrypt3

@@ -1,5 +1,11 @@
+from geoapps.zajecia05.wyjatki.wyjatki import (
+    BrakMiejscException,
+    MiejsceZajeteException,
+    NieprawidlowaAnulacjaException,
+    SalaKinowa,
+    UzytkownikJuzZarezerwowalException,
+)
 import pytest
-from geoapps.zajecia05.wyjatki.wyjatki import *
 
 
 def test_rezerwacja_i_anulacja():

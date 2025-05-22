@@ -1,1 +1,0 @@
-from geoapps.zajecia01.podst_typy_wbudowane.skrypt2 import zaj01_skrypt2

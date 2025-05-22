@@ -1,4 +1,7 @@
-from geoapps.zajecia03.fleet.ambulance import *
+# from geoapps.zajecia03.fleet.ambulance import *
+
+from geoapps.zajecia03.fleet.ambulance import Ambulance
+
 
 def test_e2e_ambulance_workflow():
     a1 = Ambulance("AZ124", "available", (50.1, 19.9), ["defibrillator"])
