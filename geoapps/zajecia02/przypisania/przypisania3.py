@@ -1,4 +1,4 @@
-def zaj02_przypisania3(): 
+def zaj02_przypisania3():
     K = [1, 2]
     L = K
     # konkatenacja
@@ -11,8 +11,9 @@ def zaj02_przypisania3():
     print(f"Konkatencja\nK: {K}; L: {L}")
     print(f"Przypisanie rozszerzone\nM: {M}; N: {N}")
 
-    #kontrachencja laczy ciagi znakow, sekwencje lub struktury danych w jeden nowy dluzszy ciag/strukture, 
+    # kontrachencja laczy ciagi znakow, sekwencje lub struktury danych w jeden nowy dluzszy ciag/strukture,
     # a przypisania rozszerzone modyfikują wartość zmiennej i przypisują wynik (zachowuje referencje --> wspoldzielona referencja)
-    
+
+
 if __name__ == "__main__":
     zaj02_przypisania3()

@@ -1,8 +1,8 @@
 from .ambulance import Ambulance
 
+
 class Station:
     __max_id = 0
-
 
     def __init__(self, location, ambulance, driver, staff_member):
         Station.__max_id += 1
@@ -24,14 +24,14 @@ if __name__ == "__main__":
         vehicle_type="AZ124",
         status="Available",
         location=(50.095340, 19.920282),
-        medical_equipment=["defibrillator", "stretcher"]
+        medical_equipment=["defibrillator", "stretcher"],
     )
 
     station1 = Station(
         location=(50.095340, 19.920282),
         ambulance=ambulance1,
         driver="John Doe",
-        staff="Jane Smith"
+        staff="Jane Smith",
     )
 
     print(station1)

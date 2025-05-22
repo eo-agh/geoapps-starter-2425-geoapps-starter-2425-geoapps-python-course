@@ -1,6 +1,7 @@
 from math import pi
 from random import randint
 
+
 def zaj01_skrypt2():
     wartosc = 100
     print("Wartosc: " + str(wartosc))
@@ -10,8 +11,8 @@ def zaj01_skrypt2():
     print("Dodawanie: " + str(dodawanie))
     print("Typ zmiennej dodawanie: " + str(type(dodawanie)))
 
-    #potega = dodawanie ** 12345 --> blad; liczba poza skala
-    potega = dodawanie ** 12
+    # potega = dodawanie ** 12345 --> blad; liczba poza skala
+    potega = dodawanie**12
     print("Potega: " + str(potega))
     print("Typ zmiennej potega: " + str(type(potega)))
 
@@ -23,7 +24,7 @@ def zaj01_skrypt2():
     print("Wartosc_pi: " + str(wartosc_pi))
     print("Typ zmiennej wartosc_pi: " + str(type(wartosc_pi)))
 
-    li = [1,2,3,4,5]
+    li = [1, 2, 3, 4, 5]
 
     los = randint(0, 4)
     losowa = li[los]
@@ -39,8 +40,8 @@ def zaj01_skrypt2():
     tekst = tekst.upper()
     print("Kolejne nadpisanie zmiennej tekst: " + tekst)
 
-    #tekst[1] = "p" --> blad
-    print("Zamiana drugiej pozycji zmiennej tekst na p: " + tekst.replace("A","p"))
+    # tekst[1] = "p" --> blad
+    print("Zamiana drugiej pozycji zmiennej tekst na p: " + tekst.replace("A", "p"))
 
     lista = list(tekst)
     print("Zawartosc zmiennej lista: " + str(lista))
@@ -58,9 +59,9 @@ def zaj01_skrypt2():
     print("Zawartosc zmiennej lista po usunieciu dwukropka: " + str(lista))
     print("Typ zmiennej lista po usunieciu dwukropka: " + str(type(lista)))
 
-    lista2 = [1,2,3,"banan",100]
+    lista2 = [1, 2, 3, "banan", 100]
 
-    lista3 = [x ** 2 for x in lista2 if x != "banan"]
+    lista3 = [x**2 for x in lista2 if x != "banan"]
 
     lista4 = [x for x in range(2, 17) if x % 2 == 0]
 
@@ -75,13 +76,24 @@ def zaj01_skrypt2():
     print("Typ zmiennej ja: " + str(type(ja)))
 
     ja = {
-        "imie":"Martyna", 
-        "nazwisko":"Sala", 
-        "wiek":21, 
-        "moje_hobby":[{"nazwa":"origami", "dlaczego:":"lubie skladac papier w rozne ksztalty, bardzo mnie to relaksuje"},
-                      {"nazwa":"ukladanie puzzli", "dlaczego:":"dzieki temu nie musze myslec o niczym innym"},
-                      {"nazwa":"szydelkowanie","dlaczego:":"odprezajace dla mnie zajecie po stresujacym dniu"},
-                      {"nazwa":"czytanie ksiazek","dlaczego:":"oderwanie od rzeczywistosci"}]
+        "imie": "Martyna",
+        "nazwisko": "Sala",
+        "wiek": 21,
+        "moje_hobby": [
+            {
+                "nazwa": "origami",
+                "dlaczego:": "lubie skladac papier w rozne ksztalty, bardzo mnie to relaksuje",
+            },
+            {
+                "nazwa": "ukladanie puzzli",
+                "dlaczego:": "dzieki temu nie musze myslec o niczym innym",
+            },
+            {
+                "nazwa": "szydelkowanie",
+                "dlaczego:": "odprezajace dla mnie zajecie po stresujacym dniu",
+            },
+            {"nazwa": "czytanie ksiazek", "dlaczego:": "oderwanie od rzeczywistosci"},
+        ],
     }
     print("Typ zmiennej ja: " + str(type(ja)))
 
@@ -94,13 +106,21 @@ def zaj01_skrypt2():
         czy = True
 
     print("W zmiennej ja znajduje sie klucz adres: " + str(czy))
-    print("Typ zmiennej odpowiedzialnej zasprawdzenie prawdziwosci wczesniejszego zdania: " + str(type(czy)))
+    print(
+        "Typ zmiennej odpowiedzialnej zasprawdzenie prawdziwosci wczesniejszego zdania: "
+        + str(type(czy))
+    )
 
-    krotka1 = (1,2,"3",4,2,5)
+    krotka1 = (1, 2, "3", 4, 2, 5)
     print("Zawartosc zmiennej krotka1: " + str(krotka1))
     print("Typ zmiennej krotka1: " + str(type(krotka1)))
 
-    print("Dlugosc zmiennej krotka1: " + str(len(krotka1)) + ". Pierwszy wyraz zmiennej krotka1: " + str(krotka1[0]))
+    print(
+        "Dlugosc zmiennej krotka1: "
+        + str(len(krotka1))
+        + ". Pierwszy wyraz zmiennej krotka1: "
+        + str(krotka1[0])
+    )
 
     il2 = 0
     for el in krotka1:
@@ -108,17 +128,20 @@ def zaj01_skrypt2():
             il2 += 1
     print("Ilosc występowania wartosci 2 w zmiennej krotka1: " + str(il2))
 
-    #zmiana elementu zmiennej typu tuple (krotka) na dwa sposoby:
-    #krotka1[0] = 2 --> blad, jesli typ zmiennej to tuple
-    #by wykonac ta linijke kodu najpierw trzeba zmienic typ zmiennej na liste
+    # zmiana elementu zmiennej typu tuple (krotka) na dwa sposoby:
+    # krotka1[0] = 2 --> blad, jesli typ zmiennej to tuple
+    # by wykonac ta linijke kodu najpierw trzeba zmienic typ zmiennej na liste
     krotka1 = list(krotka1)
     krotka1[0] = 2
-    #i wracamy do typu tuple
+    # i wracamy do typu tuple
     krotka1 = tuple(krotka1)
 
-    #lub poczaczyc krotki
+    # lub poczaczyc krotki
     # krotka1 = (2,) + krotka1[1:]
-    print("Wartości nadpisananej zmiennej krotka1 (zmiana wartosci dla pierwszego elementu): " + str(krotka1))
+    print(
+        "Wartości nadpisananej zmiennej krotka1 (zmiana wartosci dla pierwszego elementu): "
+        + str(krotka1)
+    )
     print("Typ zmiennej krotka1 po nadpisaniu: " + str(type(krotka1)))
 
     X = set("kalarepa")
@@ -130,6 +153,7 @@ def zaj01_skrypt2():
     print("Typ zmiennej Y: " + str(type(X)))
 
     print(f"Czesc wspolna zmiennych X i Y: {X & Y}")
-    
+
+
 if __name__ == "__main__":
     zaj01_skrypt2()

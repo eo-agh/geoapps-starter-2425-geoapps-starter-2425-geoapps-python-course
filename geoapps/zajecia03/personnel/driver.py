@@ -1,6 +1,7 @@
 # V1 - slajd 8: python -m personnel.driver
 from .employee import Employee
 
+
 class Driver(Employee):
     def __init__(self, first_name, last_name, salary, license_number, qualifications):
         # alternatywa: super().__init__(self, ...)
@@ -10,6 +11,7 @@ class Driver(Employee):
 
     def display_info(self):
         return f"Driver ID: {self.employee_id}, Name: {self.first_name} {self.last_name}, Salary: {self.salary}, License Number: {self.license_number}, Qualifications: {', '.join(self.qualifications)}"
+
 
 # Uruchomienie tego kodu: python -m geoapps.zajecia03.personnel.driver
 if __name__ == "__main__":

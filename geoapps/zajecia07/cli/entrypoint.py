@@ -37,6 +37,7 @@ def square(x: int):
     """
     wynik = kwadrat(x)
     typer.echo(f"Wynik: {wynik}")
-    
+
+
 if __name__ == "__main__":
     app()

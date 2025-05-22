@@ -1,6 +1,7 @@
 import logging
-from pathlib import Path 
+from pathlib import Path
 from datetime import datetime
+
 
 def get_logger(
     name: str,
@@ -33,14 +34,14 @@ def get_logger(
         stream_handler.setLevel(logging.INFO)  # Set level for stream
         stream_handler.setFormatter(formatter)
         logger.addHandler(stream_handler)
-        
+
         # File handler
         if log_file is None:
             logs_dir = Path("./logs")
             logs_dir.mkdir(exist_ok=True)
             timestamp = datetime.now()
-            log_file = logs_dir/f"logs_{timestamp}.log"
-             
+            log_file = logs_dir / f"logs_{timestamp}.log"
+
         file_handler = logging.FileHandler(log_file, mode="a")
         file_handler.setLevel(logging.ERROR)  # Set level for file
         file_handler.setFormatter(formatter)
