@@ -1,3 +1,4 @@
+from geoapps.zajecia02.petle.petle import kwadrat
 import typer
 from typing import Optional
 
@@ -28,6 +29,14 @@ def greet(name: Optional[str] = typer.Argument(None, help="Twoje imię")):
         typer.echo("Witaj nieznajomy!")
         typer.echo("Dzisiaj jest świetny dzień na kodowanie!")
 
+@app.command()
+def square(x: int):
+    """
+    Zwraca kwadrat liczby.
+    """
+    wynik = kwadrat(x)
+    typer.echo(f"Wynik: {wynik}")
 
+    
 if __name__ == "__main__":
     app()

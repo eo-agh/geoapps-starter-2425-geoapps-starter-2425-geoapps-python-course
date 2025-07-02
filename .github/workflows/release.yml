@@ -35,7 +35,6 @@ jobs:
             echo "Version matches."
           fi
 
-
       - name: Install build tool
         run: |
           python -m pip install --upgrade pip

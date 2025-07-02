@@ -30,15 +30,15 @@ setup-pre-commit:
 setup-editable:
 	$(CONDA_ACTIVATE) pip install -e .
 
-## Add function env below
-## Creates local environment and installs pre-commit hooks
+.PHONY: env  ## Creates local environment and installs pre-commit hooks
+env: conda-lock-install setup-pre-commit setup-editable
 
 .PHONY: remove-env  ## Removes current conda environment
 remove-env:
 	mamba env remove -n $(CONDA_ENV_NAME) --yes --quiet
 
-## Add function recreate-env below
-## Recreates conda environment by making new one from fresh lockfile
+.PHONY: recreate-env  ## Recreates conda environment by making new one from fresh lockfile
+recreate-env: remove-env lock-file env
 
 # Helpers - this will be needed for the next topics during this class
 
