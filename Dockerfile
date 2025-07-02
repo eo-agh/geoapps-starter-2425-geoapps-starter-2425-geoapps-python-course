@@ -1,6 +1,7 @@
 # Use Miniforge3 as base image - it comes with mamba pre-installed
 FROM condaforge/miniforge3:24.11.3-0
 
+
 # Set bash as the default shell
 ENV SHELL=/bin/bash
 

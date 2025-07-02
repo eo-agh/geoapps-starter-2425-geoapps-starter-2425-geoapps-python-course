@@ -17,7 +17,6 @@ class Employee:
         self.salary = new_salary
         print(f"Updated salary: {self.salary}")
 
-
 # Ta sama implementacja ale z abstrakcyjna klasa nadrzedna
 
 # from abc import ABC, abstractmethod

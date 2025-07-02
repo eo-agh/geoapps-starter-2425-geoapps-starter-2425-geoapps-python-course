@@ -29,7 +29,6 @@ def greet(name: Optional[str] = typer.Argument(None, help="Twoje imię")):
         typer.echo("Witaj nieznajomy!")
         typer.echo("Dzisiaj jest świetny dzień na kodowanie!")
 
-
 @app.command()
 def square(x: int):
     """
@@ -38,6 +37,6 @@ def square(x: int):
     wynik = kwadrat(x)
     typer.echo(f"Wynik: {wynik}")
 
-
+    
 if __name__ == "__main__":
     app()
