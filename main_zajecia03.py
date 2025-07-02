@@ -5,7 +5,6 @@ from geoapps.zajecia03.personnel.driver import Driver
 # from geoapps.zajecia03.operations import *
 # from geoapps.zajecia03.personnel import *
 
-
 def run_application():
     # Zdefiniowanie naszych zasobów
     ambulance1 = Ambulance(
